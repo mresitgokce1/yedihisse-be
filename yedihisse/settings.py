@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     'phone.apps.PhoneConfig',
     'address.apps.AddressConfig',
     'car.apps.CarConfig',
+    'allotment.apps.AllotmentConfig',
+    'application.apps.ApplicationConfig',
+    'branch.apps.BranchConfig',
     'clear_cache'
 ]
 

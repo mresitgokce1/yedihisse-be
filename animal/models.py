@@ -19,10 +19,8 @@ class Animal(BaseEntity):
     kilo = models.FloatField(verbose_name=_("Hayvan Kilosu"), default=0, blank=False, null=False,
                              validators=[MinValueValidator(0), MaxValueValidator(1000)])
     code = models.CharField(verbose_name=_("Hayvan Kodu"), blank=False, max_length=255, unique=True)
-    cost = models.FloatField(verbose_name=_("Hayvan Maliyeti"), default=0, blank=False, null=False,
-                             validators=[MinValueValidator(0), MaxValueValidator(50000)])
-    gain = models.FloatField(verbose_name=_("Hayvan Karı"), default=0, blank=False, null=False,
-                             validators=[MinValueValidator(0), MaxValueValidator(50000)])
+    cost = models.FloatField(verbose_name=_("Hayvan Maliyeti"), default=0, blank=False, null=False)
+    gain = models.FloatField(verbose_name=_("Hayvan Karı"), default=0, blank=False, null=False)
     ear_code = models.CharField(verbose_name=_("Hayvan Kulak Kodu"), blank=True, max_length=255)
     bait_code = models.CharField(verbose_name=_("Hayvan Yem Kodu"), blank=True, max_length=255)
     animal_type = models.ForeignKey(AnimalType, on_delete=models.SET_NULL, verbose_name=_("Hayvanın Tipi"),

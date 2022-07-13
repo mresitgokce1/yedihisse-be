@@ -52,9 +52,9 @@ class CarManagerMission(BaseEntity):
 
 class CarManager(BaseEntity):
     description = models.CharField(verbose_name=_("Açıklama"), max_length=250, blank=True)
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, verbose_name=_("Araca Atanacak Görevli"),
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name=_("Araca Atanacak Görevli"),
                                 related_name="r_manager_of_car", related_query_name="q_manager_of_car")
-    car = models.OneToOneField(Car, on_delete=models.CASCADE, verbose_name=_("Görevlinin Atanacağı Araç"),
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, verbose_name=_("Görevlinin Atanacağı Araç"),
                                related_name="r_car_of_manager", related_query_name="q_car_of_manager")
     car_manager_mission = models.ForeignKey(CarManagerMission, on_delete=models.SET_NULL,
                                             verbose_name=_("Araç Görevlisinin Görevi"),
