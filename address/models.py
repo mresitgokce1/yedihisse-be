@@ -28,7 +28,7 @@ class City(BaseEntity):
 
 class District(BaseEntity):
     district = models.CharField(verbose_name=_("İlçe"), blank=False, max_length=200)
-    linked_city = models.ForeignKey(Country, on_delete=models.CASCADE, verbose_name=_("Bağlı Şehir"),
+    linked_city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_("Bağlı Şehir"),
                                     related_name="r_city_of_district", related_query_name="q_city_of_district")
 
     def __str__(self):
@@ -37,7 +37,7 @@ class District(BaseEntity):
 
 class Parish(BaseEntity):
     parish = models.CharField(verbose_name=_("Mahalle"), blank=False, max_length=200)
-    linked_district = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_("Bağlı İlçe"),
+    linked_district = models.ForeignKey(District, on_delete=models.CASCADE, verbose_name=_("Bağlı İlçe"),
                                         related_name="r_parish_of_district", related_query_name="q_parish_of_district")
 
     def __str__(self):
