@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'firm.apps.FirmConfig',
     'company.apps.CompanyConfig',
     'killing.apps.KillingConfig',
+    'payment.apps.PaymentConfig',
+    'slaughterhouse.apps.SlaughterhouseConfig',
     'clear_cache'
 ]
 
