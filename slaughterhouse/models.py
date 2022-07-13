@@ -52,7 +52,8 @@ class SlaughterhouseManagerMission(BaseEntity):
 class SlaughterhouseManager(BaseEntity):
     description = models.CharField(verbose_name=_("Açıklama"), max_length=100, blank=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name=_("Kesimhaneye Atanan Görevli"),
-                             related_name="r_manager_of_branch", related_query_name="q_manager_of_branch")
+                             related_name="r_manager_of_slaughterhouse",
+                             related_query_name="q_manager_of_slaughterhouse")
     slaughterhouse = models.ForeignKey(Slaughterhouse, on_delete=models.CASCADE,
                                        verbose_name=_("Görevliye Atanan Kesimhane"),
                                        related_name="r_slaughterhouse_of_manager",
