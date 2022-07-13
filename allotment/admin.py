@@ -1,3 +1,5 @@
 from django.contrib import admin
+from allotment.models import Allotment
 
-# Register your models here.
+
+admin.site.register(Allotment)
