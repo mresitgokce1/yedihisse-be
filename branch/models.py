@@ -4,6 +4,7 @@ from django.utils.translation import gettext as _
 from address.models import Address
 from phone.models import PhoneNumber
 from user.models import CustomUser
+from firm.models import Firm
 
 
 class BranchManagerMission(BaseEntity):
@@ -17,8 +18,8 @@ class BranchManagerMission(BaseEntity):
 
 class Branch(BaseEntity):
     branch_name = models.CharField(verbose_name=_("Şube Adı"), max_length=50, blank=False)
-
-    #firm todo firm model.
+    firm = models.ForeignKey(Firm, on_delete=models.SET_NULL, null=True, verbose_name=_("Şubenin Firması"),
+                             related_name="r_firm_of_branch", related_query_name="q_firm_of_branch")
     address = models.OneToOneField(Address, on_delete=models.CASCADE, verbose_name=_("Şube Adresi"), null=True)
     phone = models.ForeignKey(PhoneNumber, on_delete=models.CASCADE, verbose_name=_("Şube Telefonu"), null=True)
 
@@ -35,3 +36,6 @@ class BranchManager(BaseEntity):
     branch_manager_mission = models.ForeignKey(BranchManagerMission, on_delete=models.SET_NULL, null=True,
                                                related_name="r_mission_of_manager",
                                                related_query_name="q_mission_of_manager")
+
+    def __str__(self):
+        return self.description

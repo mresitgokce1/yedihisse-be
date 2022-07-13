@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'allotment.apps.AllotmentConfig',
     'application.apps.ApplicationConfig',
     'branch.apps.BranchConfig',
+    'firm.apps.FirmConfig',
+    'company.apps.CompanyConfig',
     'clear_cache'
 ]
 
