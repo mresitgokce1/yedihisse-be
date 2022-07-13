@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'branch.apps.BranchConfig',
     'firm.apps.FirmConfig',
     'company.apps.CompanyConfig',
+    'killing.apps.KillingConfig',
     'clear_cache'
 ]
 
