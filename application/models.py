@@ -4,6 +4,7 @@ from django.utils.translation import gettext as _
 from allotment.models import Allotment
 from user.models import CustomUser
 from animal.models import AnimalType
+from branch.models import Branch
 
 
 class Application(BaseEntity):
@@ -12,7 +13,8 @@ class Application(BaseEntity):
                                                       default=1)
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, verbose_name=_("Başvuran Kullanıcı"),
                              related_name="r_user_of_application", related_query_name="q_user_of_application")
-    #branch = models.Fore
+    branch = models.ForeignKey(Branch, on_delete=models.SET_NULL, null=True, verbose_name=_("Başvuru Yapılan Şube"),
+                               related_name="r_branch_of_application", related_query_name="q_branch_of_application")
     allotment = models.ForeignKey(Allotment, on_delete=models.SET_NULL, null=True, verbose_name=_("Başvurulan Hisse"),
                                   related_name="r_allotment_of_application",
                                   related_query_name="q_allotment_of_application")
