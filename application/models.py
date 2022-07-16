@@ -19,7 +19,7 @@ class Application(BaseEntity):
                                   related_name="r_allotment_of_application",
                                   related_query_name="q_allotment_of_application")
     animal_type = models.ForeignKey(AnimalType, on_delete=models.SET_NULL, null=True,
-                                    verbose_name=_("Başvuran Kullanıcı"),
+                                    verbose_name=_("Hayvan Tipi"),
                                     related_name="r_animal_type_of_application",
                                     related_query_name="q_animal_type_of_application")
 
