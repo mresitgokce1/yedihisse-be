@@ -16,4 +16,4 @@ class Allotment(BaseEntity):
                                   related_name="r_animal_of_allotment", related_query_name="q_animal_of_allotment")
 
     def __str__(self):
-        return self.description
+        return f'{self.animal.code} kodlu hayvanın hissesi.'

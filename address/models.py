@@ -4,14 +4,14 @@ from yedihisse.models import BaseEntity
 
 
 class AddressType(BaseEntity):
-    address_type_name = models.CharField(verbose_name=_("Adres Tip Adı"), blank=False, max_length=50)
+    address_type_name = models.CharField(verbose_name=_("Adres Tip Adı"), blank=False, max_length=50, unique=True)
 
     def __str__(self):
         return self.address_type_name
 
 
 class Country(BaseEntity):
-    country = models.CharField(verbose_name=_("Ülke"), blank=False, max_length=200)
+    country = models.CharField(verbose_name=_("Ülke"), blank=False, max_length=200, unique=True)
 
     def __str__(self):
         return self.country

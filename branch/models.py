@@ -5,6 +5,7 @@ from address.models import Address
 from phone.models import PhoneNumber
 from user.models import CustomUser
 from firm.models import Firm
+from address.models import Parish
 
 
 class BranchManagerMission(BaseEntity):
@@ -25,6 +26,14 @@ class Branch(BaseEntity):
 
     def __str__(self):
         return self.branch_name
+
+
+class BranchServiceArea(BaseEntity):
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, verbose_name=_("Bölge"), null=False)
+    service_area = models.ForeignKey(Parish, on_delete=models.CASCADE, verbose_name=_("Servis Bölgesi"), null=False)
+
+    def __str__(self):
+        return "Tanımlanan Servis Bölgesi"
 
 
 class BranchManager(BaseEntity):
