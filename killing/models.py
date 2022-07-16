@@ -46,7 +46,7 @@ class KillingJoinAnimal(BaseEntity):
                                related_name="r_animal_of_killing_group", related_query_name="q_animal_of_killing_group")
 
     def __str__(self):
-        return self.killing_number
+        return str(self.killing_number)
 
 
 
