@@ -26,9 +26,9 @@ class Animal(BaseEntity):
     animal_type = models.ForeignKey(AnimalType, on_delete=models.SET_NULL, verbose_name=_("Hayvanın Tipi"),
                                     blank=False, null=True,
                                     related_name="r_type_of_animal", related_query_name="q_type_of_animal")
-    car = models.ForeignKey(Car, on_delete=models.SET_NULL, verbose_name=_("Hayvanın Aracı"), null=True,
+    car = models.ForeignKey(Car, on_delete=models.SET_NULL, verbose_name=_("Hayvanın Aracı"), null=True, blank=True,
                             related_name="r_car_of_animal", related_query_name="q_car_of_animal")
 
     def __str__(self):
-        return self.code
+        return f'{self.code}'
 

@@ -13,18 +13,16 @@ class Application(BaseEntity):
                                                       default=1)
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, verbose_name=_("Başvuran Kullanıcı"),
                              related_name="r_user_of_application", related_query_name="q_user_of_application")
-    branch = models.ForeignKey(Branch, on_delete=models.SET_NULL, null=True, verbose_name=_("Başvuru Yapılan Şube"),
+    branch = models.ForeignKey(Branch, on_delete=models.SET_NULL, null=True, blank=True,
+                               verbose_name=_("Başvuru Yapılan Şube"),
                                related_name="r_branch_of_application", related_query_name="q_branch_of_application")
-    allotment = models.ForeignKey(Allotment, on_delete=models.SET_NULL, null=True, verbose_name=_("Başvurulan Hisse"),
+    allotment = models.ForeignKey(Allotment, on_delete=models.SET_NULL, null=True, blank=True,
+                                  verbose_name=_("Başvurulan Hisse"),
                                   related_name="r_allotment_of_application",
                                   related_query_name="q_allotment_of_application")
-    animal_type = models.ForeignKey(AnimalType, on_delete=models.SET_NULL, null=True,
-                                    verbose_name=_("Hayvan Tipi"),
-                                    related_name="r_animal_type_of_application",
-                                    related_query_name="q_animal_type_of_application")
 
     def __str__(self):
-        return self.description
+        return f'{self.user.primary_phone}({self.user.first_name} {self.user.last_name}) kullanıcısının başvurusu.'
 
 
 class ApplicationStatusType(BaseEntity):
