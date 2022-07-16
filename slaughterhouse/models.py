@@ -37,7 +37,7 @@ class SlaughterhouseJoinType(BaseEntity):
                                        related_query_name="q_slaughterhouse_of_type")
 
     def __str__(self):
-        return self.holding_capacity
+        return str(self.holding_capacity)
 
 
 class SlaughterhouseManagerMission(BaseEntity):
